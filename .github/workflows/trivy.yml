@@ -25,6 +25,12 @@ jobs:
       actions: read # only required for a private repository by github/codeql-action/upload-sarif to get the Action run status
     name: Build
     runs-on: "ubuntu-20.04"
+    env:
+      TAG: dev-sec-ops-api
+      USER: ${{ secrets.DOCKER_USERNAME }}
+      REGISTRY: hub.docker.com
+      VERSION: v1
+  
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
@@ -47,9 +53,9 @@ jobs:
         
 
       - name: Run Trivy vulnerability scanner
-        uses: aquasecurity/trivy-action@7b7aa264d83dc58691451798b4d117d53d21edfe,docker/metadata-action@9ec57ed1fcdbf14dcef7dfbe97b2010124a938b7
+        uses: aquasecurity/trivy-action@7b7aa264d83dc58691451798b4d117d53d21edfe
         with:
-          image-ref: r3d11/dev-sec-ops-api
+          image-ref: '${{ env.REGISTRY }}/${{ env.USER }}/${{ env.TAG }}:${{ env.VERSION }}'
           format: 'template'
           template: '@/contrib/sarif.tpl'
           output: 'trivy-results.sarif'
