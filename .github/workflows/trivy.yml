@@ -28,6 +28,7 @@ jobs:
     env:
       TAG: dev-sec-ops-api
       USER: ${{ secrets.DOCKER_USERNAME }}
+      IMG: r3d11/dev-sec-ops-api
       REGISTRY: hub.docker.com
       VERSION: v1
   
@@ -55,7 +56,7 @@ jobs:
       - name: Run Trivy vulnerability scanner
         uses: aquasecurity/trivy-action@7b7aa264d83dc58691451798b4d117d53d21edfe
         with:
-          image-ref: '${{ env.REGISTRY }}/${{ env.USER }}/${{ env.TAG }}:${{ env.VERSION }}'
+          image-ref: '${{ env.REGISTRY }}/${{ env.IMG }}' #${{ env.USER }}/${{ env.TAG }}:${{ env.VERSION }}
           format: 'template'
           template: '@/contrib/sarif.tpl'
           output: 'trivy-results.sarif'
