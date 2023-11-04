@@ -34,20 +34,13 @@ jobs:
             push: true
             tags: ${{ steps.meta.outputs.tags }}
             labels: ${{ steps.meta.outputs.labels }}
-              
-        # uses: docker/build-push-action@v4
-        # with:
-        #   context: .
-        #   platforms: linux/amd64,linux/arm64
-        #   push: true
-        #   tags: my-image-name:$(date +%s) #docker.io/anaisurlichs/cns-website:${{ github.sha }}
 
 
       - 
         name: Run Trivy vulnerability scanner
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: 'docker.io/anaisurlichs/cns-website:${{ github.sha }}'
+          image-ref: ${{ steps.meta.outputs.tags }}
           format: 'table'
           exit-code: '0'
           ignore-unfixed: true
