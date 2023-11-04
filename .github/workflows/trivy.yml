@@ -28,7 +28,7 @@ jobs:
         uses: anandg112/trivy-action@feat/add-skip-dirs-option
         with:
           scan-type: 'fs'
-#          scan-ref: '.'
+          scan-ref: '.'
           ignore-unfixed: true
           format: 'template'
           template: '@/contrib/sarif.tpl'
