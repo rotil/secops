@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 #from http.server import BaseHTTPRequestHandler, HTTPServer
-
+password = '123456'
 PORT_NUMBER = 80
 
 mappings = { '/hello': {'msg': 'Hello World, my people'}, '/health': {'msg': 'Healthy'} }
