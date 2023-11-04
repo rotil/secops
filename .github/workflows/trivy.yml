@@ -34,7 +34,7 @@ jobs:
           template: '@/contrib/sarif.tpl'
           output: 'trivy-results-fs.sarif'
           severity: 'CRITICAL'
-          skip-dirs: "ignored-dir"
+          skip-dirs: "trivy-results-fs.sarif"
 
       # - name: Build an image from Dockerfile
       #   run: |
