@@ -57,7 +57,7 @@ jobs:
         labels: ${{ steps.meta.outputs.labels }}
 
     - name: check
-       run: |
+      run:
         echo ${{ steps.meta.outputs.tags }}
 
     - name: Run Trivy vulnerability scanner
