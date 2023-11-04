@@ -58,7 +58,7 @@ jobs:
 
     - name: check
        run: |
-       echo ${{ steps.meta.outputs.tags }}
+        echo ${{ steps.meta.outputs.tags }}
 
     - name: Run Trivy vulnerability scanner
       uses: aquasecurity/trivy-action@master
