@@ -33,7 +33,7 @@ jobs:
           format: 'template'
           template: '@/contrib/sarif.tpl'
           output: 'trivy-results-fs.sarif'
-          severity: 'CRITICAL'
+          severity: 'CRITICAL,HIGH,'
           skip-dirs: "trivy-results-fs.sarif"
 
       # - name: Build an image from Dockerfile
@@ -47,7 +47,7 @@ jobs:
       #     format: 'template'
       #     template: '@/contrib/sarif.tpl'
       #     output: 'trivy-results.sarif'
-      #     severity: 'CRITICAL,HIGH'
+      #     severity: 'CRITICAL,HIGH,MEDIUM '
 
       - name: Upload Trivy scan results to GitHub Security tab
         uses: github/codeql-action/upload-sarif@v2
