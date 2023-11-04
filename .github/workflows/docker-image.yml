@@ -1,4 +1,4 @@
-name: Docker Image CI
+name: Publish Docker image
 
 on:
   push:
@@ -36,11 +36,6 @@ jobs:
         rename: # optional, default is 
 
 
-name: Publish Docker image
-
-on:
-  release:
-    types: [published]
 
 jobs:
   push_to_registry:
