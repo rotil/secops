@@ -32,7 +32,7 @@ jobs:
           context: .
           platforms: linux/amd64,linux/arm64
           push: true
-          tags: ${{ steps.meta.outputs.tags }} #docker.io/anaisurlichs/cns-website:${{ github.sha }}
+          tags: 'docker.com/repository/docker/r3d11/dev-sec-ops-api' #docker.io/anaisurlichs/cns-website:${{ github.sha }}
       - 
         name: Run Trivy vulnerability scanner
         uses: aquasecurity/trivy-action@master
