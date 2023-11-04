@@ -47,8 +47,7 @@ jobs:
         
 
       - name: Run Trivy vulnerability scanner
-        uses: aquasecurity/trivy-action@7b7aa264d83dc58691451798b4d117d53d21edfe
-        uses: docker/metadata-action@9ec57ed1fcdbf14dcef7dfbe97b2010124a938b7
+        uses: aquasecurity/trivy-action@7b7aa264d83dc58691451798b4d117d53d21edfe,docker/metadata-action@9ec57ed1fcdbf14dcef7dfbe97b2010124a938b7
         with:
           image-ref: r3d11/dev-sec-ops-api
           format: 'template'
