@@ -50,22 +50,22 @@ jobs:
          echo ${{ steps.meta.outputs.tags }}
         
 
-      - name: Run Trivy vulnerability scanner in fs mode
-        uses: anandg112/trivy-action@feat/add-skip-dirs-option
-        with:
-          scan-type: 'fs'
-          scan-ref: '.'
-          ignore-unfixed: true
-          format: 'template'
-          template: '@/contrib/sarif.tpl'
-          output: 'trivy-results-fs.sarif'
-          severity: 'LOW'
-          skip-dirs: "trivy-results-fs.sarif"
+      # - name: Run Trivy vulnerability scanner in fs mode
+      #   uses: anandg112/trivy-action@feat/add-skip-dirs-option
+      #   with:
+      #     scan-type: 'fs'
+      #     scan-ref: '.'
+      #     ignore-unfixed: true
+      #     format: 'template'
+      #     template: '@/contrib/sarif.tpl'
+      #     output: 'trivy-results-fs.sarif'
+      #     severity: 'LOW'
+      #     skip-dirs: "trivy-results-fs.sarif"
 
-      - name: Upload Trivy scan results to GitHub Security tab
-        uses: github/codeql-action/upload-sarif@v2
-        with:
-          sarif_file: 'trivy-results-fs.sarif'
+      # - name: Upload Trivy scan results to GitHub Security tab
+      #   uses: github/codeql-action/upload-sarif@v2
+      #   with:
+      #     sarif_file: 'trivy-results-fs.sarif'
 
 
       - name: Run Trivy vulnerability scanner
